@@ -2,6 +2,8 @@
 
 Interactive calculator for the **Climate Resilience Index for Municipal Solid Waste Management (CRI-MSWM)**.
 
+**Live app: https://cri-mswm.streamlit.app**
+
 The index assesses the climate resilience of a city's municipal solid waste management (MSWM) system with
 41 indicators grouped into four components (Environmental, Technical, Socioeconomic, Governance) and four
 resilience dimensions (exposure and pressure, absorptive, adaptive and transformative capacity).
