@@ -1,0 +1,1292 @@
+{
+ "meta": {
+  "name": "CRI-MSWM Calculator",
+  "version": "1.0.0",
+  "ahp_weights": {
+   "Environmental": 0.3547,
+   "Technical": 0.1278,
+   "Socioeconomic": 0.1575,
+   "Governance": 0.36
+  },
+  "ahp_cr": 0.0059,
+  "bootstrap_low": [
+   0.197,
+   0.065,
+   0.102,
+   0.187
+  ],
+  "bootstrap_high": [
+   0.515,
+   0.245,
+   0.224,
+   0.545
+  ],
+  "bangkok_cri": 3.22,
+  "classes": [
+   [
+    1.0,
+    1.8,
+    "Very low"
+   ],
+   [
+    1.8,
+    2.6,
+    "Low"
+   ],
+   [
+    2.6,
+    3.4,
+    "Moderate"
+   ],
+   [
+    3.4,
+    4.2,
+    "High"
+   ],
+   [
+    4.2,
+    5.0,
+    "Very high"
+   ]
+  ]
+ },
+ "indicators": [
+  {
+   "code": "EN1",
+   "component": "Environmental",
+   "name": "Waste collection coverage",
+   "dimension": "Ab",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "<50%",
+    "51-70%",
+    "71-90%",
+    ">90% of city area covered"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 5,
+    "low": 5,
+    "high": 5,
+    "value": ">90% of city area",
+    "source": "Field interviews, BMA and Thung Khru District (Dec 2024)"
+   },
+   "numeric": {
+    "unit": "% of city area",
+    "rule": "hb",
+    "cuts": [
+     0,
+     50,
+     70,
+     90
+    ],
+    "bangkok_value": 95
+   }
+  },
+  {
+   "code": "EN2",
+   "component": "Environmental",
+   "name": "Total MSW generated per year",
+   "dimension": "P",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    ">13",
+    "10.1-13",
+    "7.1-10",
+    "4.1-7",
+    "<4 Mt/yr"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 4,
+    "high": 5,
+    "value": "4.65 Mt (PCD, 2023); 3.21 Mt collected (BMA, 2023)",
+    "source": "PCD (2024); BMA (2023)"
+   },
+   "numeric": {
+    "unit": "Mt/yr",
+    "rule": "lb",
+    "cuts": [
+     4,
+     7,
+     10,
+     13
+    ],
+    "bangkok_value": 4.65
+   }
+  },
+  {
+   "code": "EN3",
+   "component": "Environmental",
+   "name": "Leachate containment and treatment at disposal sites",
+   "dimension": "Ab",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "open dump",
+    "limited protection",
+    "engineered liner + leachate collection, partial gas mgmt",
+    "composite liner, full leachate mgmt, gas & stormwater control",
+    "as 4 + climate-resilient design"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 3,
+    "high": 4,
+    "value": "Engineered liners, leachate collection and on-site treatment under PCD effluent standards",
+    "source": "Field interviews (2024); PCD effluent standards"
+   }
+  },
+  {
+   "code": "EN4",
+   "component": "Environmental",
+   "name": "Drainage and stormwater control around disposal sites",
+   "dimension": "Ab",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "basic, frequent ponding",
+    "engineered drainage, overtopped in heavy rain",
+    "engineered stormwater system + flood protection",
+    "designed for projected extremes"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 3,
+    "high": 4,
+    "value": "Stormwater management systems; flood-protection measures at Phanom Sarakham sanitary landfill",
+    "source": "Field interviews (2024); Kamara et al. (2026)"
+   }
+  },
+  {
+   "code": "EN5",
+   "component": "Environmental",
+   "name": "Waste diversion from landfill (share of generated MSW landfilled)",
+   "dimension": "Tr",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    ">90%",
+    "61-90%",
+    "31-60%",
+    "1-30%",
+    "0% landfilled"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 3,
+    "value": "≈59% landfilled (≈41% diverted: recycling ≈3,672 t/d, WtE ≈500 t/d, composting)",
+    "source": "PCD (2024); BMA (2023)"
+   },
+   "numeric": {
+    "unit": "% landfilled",
+    "rule": "lb",
+    "cuts": [
+     0,
+     30,
+     60,
+     90
+    ],
+    "bangkok_value": 59
+   }
+  },
+  {
+   "code": "EN6",
+   "component": "Environmental",
+   "name": "Open dumping rate",
+   "dimension": "Ab",
+   "importance": 2.8,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "1-50%",
+    "51-70%",
+    "71-90%",
+    ">90%"
+   ],
+   "scale_basis": "Properly disposed share",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 4,
+    "high": 5,
+    "value": "≈90% properly disposed",
+    "source": "Field interviews (2024); Sun et al. (2020)"
+   },
+   "numeric": {
+    "unit": "% properly disposed",
+    "rule": "hb",
+    "cuts": [
+     0,
+     50,
+     70,
+     90
+    ],
+    "bangkok_value": 90
+   }
+  },
+  {
+   "code": "EN7",
+   "component": "Environmental",
+   "name": "Share of waste collected by the formal system",
+   "dimension": "Ab",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "<30%",
+    "31-60%",
+    "61-90%",
+    ">90%"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 4,
+    "high": 5,
+    "value": "≈90% formal, ≈10% informal",
+    "source": "Field interviews, BMA and Thung Khru District (Dec 2024)"
+   },
+   "numeric": {
+    "unit": "% formal",
+    "rule": "hb",
+    "cuts": [
+     0,
+     30,
+     60,
+     90
+    ],
+    "bangkok_value": 90
+   }
+  },
+  {
+   "code": "EN8",
+   "component": "Environmental",
+   "name": "Transport distance to final disposal",
+   "dimension": "P",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    ">50",
+    "21-50",
+    "11-20",
+    "6-10",
+    "0-5 km"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 1,
+    "low": 1,
+    "high": 1,
+    "value": "80-98 km from transfer stations to landfills",
+    "source": "Field interviews, BMA and Thung Khru District (Dec 2024)"
+   },
+   "numeric": {
+    "unit": "km",
+    "rule": "lb",
+    "cuts": [
+     5,
+     10,
+     20,
+     50
+    ],
+    "bangkok_value": 90
+   }
+  },
+  {
+   "code": "EN9",
+   "component": "Environmental",
+   "name": "Frequency of illegal dumping",
+   "dimension": "Ab",
+   "importance": 2.7,
+   "importance_source": "Panel consensus",
+   "levels": [
+    ">40%",
+    "25-40%",
+    "11-25%",
+    "<=10%",
+    "0% of waste illegally dumped"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 3,
+    "high": 5,
+    "value": "Rarely; <=10%",
+    "source": "Field interviews (2024)"
+   },
+   "numeric": {
+    "unit": "% illegally dumped",
+    "rule": "lb",
+    "cuts": [
+     0,
+     10,
+     25,
+     40
+    ],
+    "bangkok_value": 5
+   }
+  },
+  {
+   "code": "EN10",
+   "component": "Environmental",
+   "name": "Flood exposure of the disposal chain (share of residual waste routed to flood-susceptible sites)",
+   "dimension": "P",
+   "importance": 3.0,
+   "importance_source": "Inferred (framework-anchored)",
+   "levels": [
+    ">50%",
+    "25-50%",
+    "10-25%",
+    "1-10%",
+    "0%"
+   ],
+   "scale_basis": "",
+   "basis": "IPCC AR6 (exposure); UNDRR Scorecard Essential 8; ISO 14091",
+   "bangkok": {
+    "score": 2,
+    "low": 2,
+    "high": 3,
+    "value": "≈31% of transferred waste (On Nut ≈2,600 of ≈8,350 t/d) routed to Phanom Sarakham; Bangkok's in-city facilities outside flood zones",
+    "source": "This research programme; Kamara et al. (2026); R-Cities (2025)"
+   },
+   "numeric": {
+    "unit": "% of residual waste",
+    "rule": "lb",
+    "cuts": [
+     0,
+     10,
+     25,
+     50
+    ],
+    "bangkok_value": 35
+   }
+  },
+  {
+   "code": "EN11",
+   "component": "Environmental",
+   "name": "Projected change in flood-prone area at disposal sites (2030-2100)",
+   "dimension": "P",
+   "importance": 2.9,
+   "importance_source": "Inferred (framework-anchored)",
+   "levels": [
+    ">+30%",
+    "+15 to +30%",
+    "+5 to +15%",
+    "-5 to +5%",
+    "decrease >5%"
+   ],
+   "scale_basis": "",
+   "basis": "IPCC AR6 (hazard projection); ISO 14091 (future risk)",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 4,
+    "value": "Flow-weighted ≈+10% (Chachoengsao +26 to +47%; Nakhon Pathom -0.01 to -2.6%)",
+    "source": "Kamara et al. (2026); this research programme"
+   },
+   "numeric": {
+    "unit": "% change",
+    "rule": "lb",
+    "cuts": [
+     -5,
+     5,
+     15,
+     30
+    ],
+    "bangkok_value": 10
+   }
+  },
+  {
+   "code": "EN12",
+   "component": "Environmental",
+   "name": "Waste leakage into drains and canals",
+   "dimension": "P",
+   "importance": 2.7,
+   "importance_source": "Inferred (framework-anchored)",
+   "levels": [
+    ">3%",
+    "1-3%",
+    "0.5-1%",
+    "0.1-0.5%",
+    "<0.1% of generated MSW"
+   ],
+   "scale_basis": "",
+   "basis": "Lamond et al. (2012); IPCC AR6 WGII Ch. 6",
+   "bangkok": {
+    "score": 2,
+    "low": 2,
+    "high": 3,
+    "value": "≈1.7% (387,261 t from 948 canals, 2015–2019); 2–3 t/d floating waste removed from the Chao Phraya",
+    "source": "Bangkok Post (2020); R-Cities (2025); Ishigaki et al. (2018)"
+   },
+   "numeric": {
+    "unit": "% of generated",
+    "rule": "lb",
+    "cuts": [
+     0.1,
+     0.5,
+     1,
+     3
+    ],
+    "bangkok_value": 1.7
+   }
+  },
+  {
+   "code": "TE1",
+   "component": "Technical",
+   "name": "Recycling and recovery rate",
+   "dimension": "Tr",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "1-17%",
+    "18-36%",
+    "37-55%",
+    ">55%"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 3,
+    "high": 4,
+    "value": "≈40-41%",
+    "source": "BMA (2023); Singkran (2018)"
+   },
+   "numeric": {
+    "unit": "%",
+    "rule": "hb",
+    "cuts": [
+     0,
+     17,
+     36,
+     55
+    ],
+    "bangkok_value": 41
+   }
+  },
+  {
+   "code": "TE2",
+   "component": "Technical",
+   "name": "Flood early warning system for waste facilities",
+   "dimension": "Ad",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "manual, slow",
+    "simple alerts",
+    "partially automated",
+    "fully automated, integrated"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 3,
+    "value": "City Flood Control Centre (SCADA, radar); waste facilities rely on sirens, alarms and manual protocols",
+    "source": "Phamornpol (2014); field interviews (2024)"
+   }
+  },
+  {
+   "code": "TE3",
+   "component": "Technical",
+   "name": "Flood protection infrastructure at waste facilities",
+   "dimension": "Ab",
+   "importance": 2.9,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "some sites, ad hoc",
+    "main sites protected to historical floods",
+    "all key facilities protected and maintained",
+    "designed for projected extremes"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 3,
+    "high": 4,
+    "value": "In-city facilities outside flood zones; 72 km King's Dike, 77 km river flood walls, 409 pumping stations and gates; flood protection at Phanom Sarakham",
+    "source": "Phamornpol (2014); Kamara et al. (2026)"
+   }
+  },
+  {
+   "code": "TE4",
+   "component": "Technical",
+   "name": "Waste sorted at source (share of households)",
+   "dimension": "Tr",
+   "importance": 2.7,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "<30%",
+    "31-60%",
+    "61-90%",
+    ">90%"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 2,
+    "low": 2,
+    "high": 2,
+    "value": "16-20%",
+    "source": "PCD (2024); Leknoi et al. (2024)"
+   },
+   "numeric": {
+    "unit": "% households",
+    "rule": "hb",
+    "cuts": [
+     0,
+     30,
+     60,
+     90
+    ],
+    "bangkok_value": 18
+   }
+  },
+  {
+   "code": "TE5",
+   "component": "Technical",
+   "name": "Emergency and temporary waste storage capacity",
+   "dimension": "Ab",
+   "importance": 2.6,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "ad hoc",
+    "sites pre-identified, capacity unquantified",
+    "pre-identified, >= design-event debris",
+    "as 4 + exercised"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 3,
+    "value": "Temporary storage siting and sizing rules in flood-waste guidelines; transfer stations used as storage in 2011",
+    "source": "NIES (2015); Nakayama et al. (2013)"
+   }
+  },
+  {
+   "code": "TE6",
+   "component": "Technical",
+   "name": "Number of waste treatment technologies",
+   "dimension": "Tr",
+   "importance": 2.4,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "open dumping/basic landfill",
+    "+ composting or partial incineration",
+    "sanitary landfill, basic RDF/incineration",
+    "modern WtE, AD, MRF",
+    "advanced WtE, recycling, biogas"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 3,
+    "high": 4,
+    "value": "Sanitary landfill, WtE (500 t/d), composting, MBT, RDF; two 1,000 t/d WtE plants planned for 2027–28",
+    "source": "R-Cities (2025); field interviews (2024)"
+   }
+  },
+  {
+   "code": "TE7",
+   "component": "Technical",
+   "name": "Waste collection frequency",
+   "dimension": "Ab",
+   "importance": 2.4,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "<weekly",
+    "weekly",
+    "twice/week",
+    "three times/week",
+    "daily"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 5,
+    "low": 4,
+    "high": 5,
+    "value": "Daily on main roads and markets; 2–3 times/week in some residential areas",
+    "source": "R-Cities (2025); field interviews (2024)"
+   }
+  },
+  {
+   "code": "TE8",
+   "component": "Technical",
+   "name": "Emergency response and service restoration time",
+   "dimension": "Ab",
+   "importance": 2.5,
+   "importance_source": "Panel consensus",
+   "levels": [
+    ">12",
+    "7-12",
+    "4-7",
+    "1-4",
+    "<1 month to full restoration"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 3,
+    "value": "≈6 months",
+    "source": "Field interviews (2024)"
+   },
+   "numeric": {
+    "unit": "months",
+    "rule": "lb",
+    "cuts": [
+     1,
+     4,
+     7,
+     12
+    ],
+    "bangkok_value": 6
+   }
+  },
+  {
+   "code": "TE9",
+   "component": "Technical",
+   "name": "Redundancy in operations",
+   "dimension": "Ab",
+   "importance": 2.4,
+   "importance_source": "Expert survey",
+   "levels": [
+    "none",
+    "1-2",
+    "3-5",
+    "6-10",
+    ">10 backup facilities/arrangements"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 4,
+    "value": "≈5 backup arrangements; 2 landfills; 3-4 transfer stations",
+    "source": "Field interviews (2024)"
+   },
+   "numeric": {
+    "unit": "backups",
+    "rule": "hb",
+    "cuts": [
+     0,
+     2,
+     5,
+     10
+    ],
+    "bangkok_value": 5
+   }
+  },
+  {
+   "code": "TE10",
+   "component": "Technical",
+   "name": "Infrastructure robustness and flexibility under extreme weather",
+   "dimension": "Ab",
+   "importance": 2.33,
+   "importance_source": "Expert survey",
+   "levels": [
+    "frequent breakdowns",
+    "several/yr esp. floods",
+    "1-2/yr",
+    "rare, quickly fixed",
+    "none in recent years"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 4,
+    "value": "Disruptions 1-2 times per year, not major",
+    "source": "Field interviews (2024)"
+   }
+  },
+  {
+   "code": "SE1",
+   "component": "Socioeconomic",
+   "name": "Community flood preparedness",
+   "dimension": "Ab",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "<=30%",
+    "31-60%",
+    "61-90%",
+    ">90% of population prepared/engaged"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 3,
+    "high": 4,
+    "value": ">50% of population",
+    "source": "Field interviews (2024)"
+   },
+   "numeric": {
+    "unit": "% population",
+    "rule": "hb",
+    "cuts": [
+     0,
+     30,
+     60,
+     90
+    ],
+    "bangkok_value": 55
+   }
+  },
+  {
+   "code": "SE2",
+   "component": "Socioeconomic",
+   "name": "Community adherence to waste regulations",
+   "dimension": "Ad",
+   "importance": 2.9,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "<30%",
+    "31-60%",
+    "61-90%",
+    ">90%"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 3,
+    "high": 4,
+    "value": "≈75%",
+    "source": "Field interviews (2024)"
+   },
+   "numeric": {
+    "unit": "% residents",
+    "rule": "hb",
+    "cuts": [
+     0,
+     30,
+     60,
+     90
+    ],
+    "bangkok_value": 75
+   }
+  },
+  {
+   "code": "SE3",
+   "component": "Socioeconomic",
+   "name": "Operation, maintenance and disposal cost per tonne",
+   "dimension": "Ad",
+   "importance": 2.8,
+   "importance_source": "Panel consensus",
+   "levels": [
+    ">150",
+    "101-150",
+    "46-100",
+    "15-45",
+    "<15 USD/t"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 2,
+    "low": 2,
+    "high": 3,
+    "value": "≈3,600 THB/t (≈110 USD/t)",
+    "source": "Field interviews (2024)"
+   },
+   "numeric": {
+    "unit": "USD/t",
+    "rule": "lb",
+    "cuts": [
+     15,
+     45,
+     100,
+     150
+    ],
+    "bangkok_value": 110
+   }
+  },
+  {
+   "code": "SE4",
+   "component": "Socioeconomic",
+   "name": "Community participation in waste sorting and management",
+   "dimension": "Ad",
+   "importance": 2.7,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "<30%",
+    "31-60%",
+    "61-90%",
+    ">90%"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 3,
+    "high": 4,
+    "value": "85-90% participate in waste activities",
+    "source": "Field interviews (2024)"
+   },
+   "numeric": {
+    "unit": "% participating",
+    "rule": "hb",
+    "cuts": [
+     0,
+     30,
+     60,
+     90
+    ],
+    "bangkok_value": 87
+   }
+  },
+  {
+   "code": "SE5",
+   "component": "Socioeconomic",
+   "name": "Financial stability and adaptability (cost recovery)",
+   "dimension": "Ad",
+   "importance": 2.6,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "<30%",
+    "31-60%",
+    "61-90%",
+    ">90% of O&M covered by fees"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 2,
+    "low": 2,
+    "high": 2,
+    "value": "≈6-10%",
+    "source": "ADB and JICA reports compiled in Swan et al. (2026)"
+   },
+   "numeric": {
+    "unit": "% O&M covered",
+    "rule": "hb",
+    "cuts": [
+     0,
+     30,
+     60,
+     90
+    ],
+    "bangkok_value": 8
+   }
+  },
+  {
+   "code": "SE6",
+   "component": "Socioeconomic",
+   "name": "Household expenditure and fee affordability",
+   "dimension": "Ab",
+   "importance": 2.6,
+   "importance_source": "Panel consensus",
+   "levels": [
+    ">3%",
+    "2-3%",
+    "1-2%",
+    "0.5-1%",
+    "<0.5%"
+   ],
+   "scale_basis": "Fee as % of household expenditure",
+   "basis": "",
+   "bangkok": {
+    "score": 5,
+    "low": 5,
+    "high": 5,
+    "value": "20 THB/month (60 THB planned without separation) vs 32,096 THB monthly household expenditure (0.06–0.19%)",
+    "source": "R-Cities (2025); NSO (2024)"
+   },
+   "numeric": {
+    "unit": "% of expenditure",
+    "rule": "lb",
+    "cuts": [
+     0.5,
+     1,
+     2,
+     3
+    ],
+    "bangkok_value": 0.19
+   }
+  },
+  {
+   "code": "SE7",
+   "component": "Socioeconomic",
+   "name": "Financially vulnerable population",
+   "dimension": "P",
+   "importance": 2.2,
+   "importance_source": "Expert survey",
+   "levels": [
+    ">40%",
+    "30.1-40%",
+    "20.1-30%",
+    "10.1-20%",
+    "<=10% below poverty line"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 5,
+    "low": 5,
+    "high": 5,
+    "value": "1.37% below the poverty line (2022); 676,500 residents in informal housing",
+    "source": "NSO (2024); R-Cities (2025)"
+   },
+   "numeric": {
+    "unit": "% below poverty line",
+    "rule": "lb",
+    "cuts": [
+     10,
+     20,
+     30,
+     40
+    ],
+    "bangkok_value": 1.37
+   }
+  },
+  {
+   "code": "SE8",
+   "component": "Socioeconomic",
+   "name": "Population and area exposed to flooding",
+   "dimension": "P",
+   "importance": 3.0,
+   "importance_source": "Inferred (framework-anchored)",
+   "levels": [
+    ">50%",
+    "30-50%",
+    "15-30%",
+    "5-15%",
+    "<5% of city area in flood-susceptible classes"
+   ],
+   "scale_basis": "",
+   "basis": "IPCC AR6 (exposure); Sendai Target B",
+   "bangkok": {
+    "score": 3,
+    "low": 3,
+    "high": 4,
+    "value": "<20%, concentrated in Nong Chok, Bang Khun Thian, Khlong Sam Wa, Lat Krabang",
+    "source": "This research programme (RF flood susceptibility)"
+   },
+   "numeric": {
+    "unit": "% of area",
+    "rule": "lb",
+    "cuts": [
+     5,
+     15,
+     30,
+     50
+    ],
+    "bangkok_value": 18
+   }
+  },
+  {
+   "code": "SE9",
+   "component": "Socioeconomic",
+   "name": "Disaster-risk financing for MSWM",
+   "dimension": "Ab",
+   "importance": 2.6,
+   "importance_source": "Inferred (framework-anchored)",
+   "levels": [
+    "none",
+    "ad hoc post-event funds",
+    "general contingency budget usable for waste",
+    "dedicated MSWM contingency line",
+    "dedicated line + risk transfer"
+   ],
+   "scale_basis": "",
+   "basis": "UNDRR Scorecard Essential 3; Sendai Priority 3",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 3,
+    "value": "BMA disaster-prevention office budget 466 M THB (FY2023) and central emergency reserve; no dedicated MSWM line",
+    "source": "Bangkok Post (2022); field interviews (2024)"
+   }
+  },
+  {
+   "code": "GV1",
+   "component": "Governance",
+   "name": "Waste policy and regulations",
+   "dimension": "Tr",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "outdated/poorly implemented",
+    "clear, limited enforcement",
+    "well-defined, partly effective",
+    "integrated, enforced"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 3,
+    "value": "Policies clear (e.g., 2025 PAYT fee); regulations outdated, weak enforcement",
+    "source": "Field interviews (2024)"
+   }
+  },
+  {
+   "code": "GV2",
+   "component": "Governance",
+   "name": "Guidelines on flood waste management",
+   "dimension": "Ab",
+   "importance": 3.0,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "informal",
+    "partial/outdated",
+    "cover all key services, limited testing",
+    "comprehensive, exercised"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 3,
+    "high": 4,
+    "value": "Flood-waste guidelines cover temporary storage, transport, ICT, facility design; limited testing",
+    "source": "NIES (2015)"
+   }
+  },
+  {
+   "code": "GV3",
+   "component": "Governance",
+   "name": "MSW data availability",
+   "dimension": "Ad",
+   "importance": 2.8,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "incomplete",
+    "available, not online",
+    "most data recorded and public",
+    "real-time"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 4,
+    "high": 4,
+    "value": "7.2 billion THB/yr, ≈8% of the BMA budget (2024)",
+    "source": "R-Cities (2025)"
+   }
+  },
+  {
+   "code": "GV4",
+   "component": "Governance",
+   "name": "Climate change adaptation measures for MSWM",
+   "dimension": "Ad",
+   "importance": 2.8,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "few, vague, unfunded",
+    "some, limited budget",
+    "clear, budgeted",
+    "specific plans + emergency systems + long-term budget"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 4,
+    "low": 3,
+    "high": 4,
+    "value": "Flood-waste guidelines; budgeted flood control and drainage; BCCMP 2021-2030",
+    "source": "NIES (2015); BMA (2021)"
+   }
+  },
+  {
+   "code": "GV5",
+   "component": "Governance",
+   "name": "Waste worker training",
+   "dimension": "Ad",
+   "importance": 2.8,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "none",
+    "annual",
+    "quarterly",
+    "monthly",
+    "weekly or more"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 3,
+    "high": 4,
+    "value": "Quarterly",
+    "source": "Field interviews (2024)"
+   }
+  },
+  {
+   "code": "GV6",
+   "component": "Governance",
+   "name": "Public awareness of waste management",
+   "dimension": "Ad",
+   "importance": 2.7,
+   "importance_source": "Panel consensus",
+   "levels": [
+    "0%",
+    "<30%",
+    "31-60%",
+    "61-90%",
+    ">90% of residents"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 3,
+    "value": "30-40%",
+    "source": "Vassanadumrongdee and Kittipongvises (2018); field interviews (2024)"
+   },
+   "numeric": {
+    "unit": "% residents",
+    "rule": "hb",
+    "cuts": [
+     0,
+     30,
+     60,
+     90
+    ],
+    "bangkok_value": 35
+   }
+  },
+  {
+   "code": "GV7",
+   "component": "Governance",
+   "name": "Policy and regulatory adaptability",
+   "dimension": "Tr",
+   "importance": 2.8,
+   "importance_source": "Expert survey",
+   "levels": [
+    "none",
+    "outdated, limited flexibility",
+    "occasionally updated",
+    "regularly updated",
+    "proactively revised"
+   ],
+   "scale_basis": "",
+   "basis": "",
+   "bangkok": {
+    "score": 2,
+    "low": 2,
+    "high": 3,
+    "value": "Basic adaptation for population growth and floods",
+    "source": "NIES (2015); field interviews (2024)"
+   }
+  },
+  {
+   "code": "GV8",
+   "component": "Governance",
+   "name": "Integration of MSWM into climate and disaster-risk plans",
+   "dimension": "Tr",
+   "importance": 2.8,
+   "importance_source": "Inferred (framework-anchored)",
+   "levels": [
+    "absent",
+    "mentioned only",
+    "actions listed, mostly mitigation",
+    "adaptation actions with budget/KPIs",
+    "as 4 + monitored and reported"
+   ],
+   "scale_basis": "",
+   "basis": "UNFCCC NAP guidelines (2012); Paris Agreement Art. 7",
+   "bangkok": {
+    "score": 3,
+    "low": 2,
+    "high": 3,
+    "value": "Waste in BCCMP 2021-2030 mainly as GHG mitigation (waste action plan, MRV)",
+    "source": "BMA (2021)"
+   }
+  },
+  {
+   "code": "GV9",
+   "component": "Governance",
+   "name": "Climate risk assessment of MSWM assets",
+   "dimension": "Ad",
+   "importance": 2.8,
+   "importance_source": "Inferred (framework-anchored)",
+   "levels": [
+    "none",
+    "ad hoc/academic only",
+    "hazard mapping, not institutionalised",
+    "formal assessment for key assets",
+    "periodic, scenario-based, used in planning"
+   ],
+   "scale_basis": "",
+   "basis": "ISO 14091:2021; UNDRR Scorecard Essential 2",
+   "bangkok": {
+    "score": 2,
+    "low": 2,
+    "high": 3,
+    "value": "No formal BMA assessment reported; academic flood-susceptibility mapping only",
+    "source": "This study"
+   }
+  },
+  {
+   "code": "GV10",
+   "component": "Governance",
+   "name": "Inter-agency coordination and post-disaster learning",
+   "dimension": "Tr",
+   "importance": 3.0,
+   "importance_source": "Inferred (framework-anchored)",
+   "levels": [
+    "none",
+    "ad hoc",
+    "coordination exists, lessons partly applied",
+    "formal mechanism + after-action reviews",
+    "institutionalised learning"
+   ],
+   "scale_basis": "",
+   "basis": "Sendai Priorities 2 and 4",
+   "bangkok": {
+    "score": 3,
+    "low": 3,
+    "high": 4,
+    "value": "2011 flood lessons informed flood-waste guidelines; BMA-DDPM-PCD coordination",
+    "source": "Nakayama et al. (2013); NIES (2015)"
+   }
+  }
+ ]
+}
