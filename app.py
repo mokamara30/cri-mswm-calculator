@@ -184,12 +184,15 @@ m3.metric("Resilience class", "–" if cri is None else classify(cri))
 m4.metric("Indicators scored", f"{n_scored} of {len(IND)}")
 if st.session_state.get("city"):
     st.caption(f"Assessment: **{st.session_state['city']}** · Weights: {preset} · Aggregation: {'geometric' if geometric else 'arithmetic'}")
+if cri is not None:
+    st.info(f"**{classify(cri)} resilience.** {META['class_notes'][classify(cri)]}", icon=":material/info:")
 
 tab_assess, tab_results, tab_method, tab_about = st.tabs(["Indicator assessment", "Results dashboard", "Methodology", "About & citation"])
 
 # ----------------------------------------------------------------------------- assessment
 with tab_assess:
-    st.markdown("Select a level for each indicator. Where a measured value is entered, the level is derived automatically from the scoring thresholds. Leave an indicator as *Not assessed* to exclude it; the remaining weights are rescaled.")
+    st.markdown("Select a level for each indicator. Where a measured value is entered, the level is derived automatically from the scoring thresholds. Leave an indicator as *Not assessed* to exclude it: its component score becomes the mean of the assessed indicators, "
+                "and if a whole component is unassessed the remaining component weights are rescaled.")
     ctabs = st.tabs([f"{c} ({sum(1 for d in IND if d['component'] == c)})" for c in COMPONENTS])
     for ct, c in zip(ctabs, COMPONENTS):
         with ct:
@@ -304,7 +307,11 @@ with tab_method:
     st.latex(r"C_c=\frac{1}{n_c}\sum_{i\in c}s_i \qquad \mathrm{CRI}=\sum_c W_c\,C_c \qquad \mathrm{CRI}_{geo}=\prod_c C_c^{\,W_c}")
     st.markdown("where *s<sub>i</sub>* is the 1–5 level of indicator *i*, *C<sub>c</sub>* the score of component *c* and *W<sub>c</sub>* its weight. "
                 "Indicators that are not assessed are excluded and the remaining component weights are rescaled.", unsafe_allow_html=True)
-    st.dataframe(pd.DataFrame(META["classes"], columns=["From", "To", "Resilience class"]), hide_index=True)
+    st.markdown("#### Resilience classes")
+    st.dataframe(pd.DataFrame([{"Class": n, "CRI-MSWM (1–5)": f"{lo:.2f}–{hi:.2f}" if lo == 1 else f"{lo + 0.01:.2f}–{hi:.2f}",
+                                "0–100": f"{(lo - 1) * 25:.0f}–{(hi - 1) * 25:.0f}", "Interpretation": META["class_notes"][n]}
+                               for lo, hi, n in reversed(META["classes"])]), hide_index=True, width="stretch",
+                 column_config={"Interpretation": st.column_config.TextColumn(width="large")})
     st.markdown("#### Full assessment matrix")
     mx = pd.DataFrame([{"Code": d["code"], "Component": d["component"], "Indicator": d["name"], "Dimension": DIMENSIONS[d["dimension"]],
                         **{f"Level {i + 1}": t for i, t in enumerate(d["levels"])}} for d in IND])

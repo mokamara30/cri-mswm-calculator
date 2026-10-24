@@ -48,7 +48,14 @@
     5.0,
     "Very high"
    ]
-  ]
+  ],
+  "class_notes": {
+   "Very low": "Highly vulnerable: climate hazards are likely to cause prolonged service failure, open dumping and pollution, and basic absorptive and adaptive capacities are largely absent. Urgent, comprehensive reform is needed.",
+   "Low": "Limited capacity to absorb and recover: floods and other hazards are likely to interrupt collection and disposal and to cause uncontrolled releases of waste. Substantial investment in infrastructure, planning and governance is needed.",
+   "Moderate": "Routine services are reliable and moderate shocks can be absorbed, but weaknesses in exposure, adaptive or transformative capacity mean that severe or prolonged events are likely to disrupt services. Planned investment and institutional reform are needed in the weakest dimensions.",
+   "High": "The system absorbs and recovers from most climate shocks and is adapting, but some exposure or capacity gaps remain. Targeted improvement of the weakest indicators is needed to sustain resilience as hazards intensify.",
+   "Very high": "Robust, redundant and adaptive: services continue or recover rapidly during climate hazards, disposal assets are protected, climate risk is integrated into planning and budgets, and the shift to source separation and resource recovery is well advanced. Maintain performance and monitor emerging hazards."
+  }
  },
  "indicators": [
   {
