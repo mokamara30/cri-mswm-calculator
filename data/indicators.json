@@ -181,7 +181,7 @@
    "component": "Environmental",
    "name": "Waste diversion from landfill (share of generated MSW landfilled)",
    "dimension": "Tr",
-   "importance": 3.0,
+   "importance": 2.9,
    "importance_source": "Panel consensus",
    "levels": [
     ">90%",
